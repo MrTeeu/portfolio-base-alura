@@ -1,0 +1,156 @@
+/* para pesquisar alguma coisa dentro do codigo é só clicar Ctrl+f */
+
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+/* O ":root" é usado para definir variáveis CSS globais, que podem ser acessadas e utilizadas em qualquer parte do código CSS. E para as variaveis funcionarem tem que começar com (--) */
+:root{
+    --cor-primaria: #000000;
+    --cor-secundaria: #f6f6f6f6;
+    --cor-terciaria: #22D4FD;
+    --cor-hover: #272727;
+
+    --fonte-primaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+    /* para utilizar as variaveis vc tem que escrever "var( aqui dentro vai o nome da variavel)" e pronto */
+}
+
+/* (asterisco) é conhecido como seletor universal. Ele seleciona todos os elementos HTML da página. Ou seja, você está aplicando estilos a todos os elementos do documento HTML. Isso pode ser útil quando você deseja aplicar um estilo padrão a todos os elementos ou quando precisa fazer uma alteração global no layout da página. */
+*{
+    /* sempre zerar a margin e o padding para deixar a pagina sem nenhum estilo */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* o vh serve para pegar a tela inteira: se você definir um elemento com "height: 100vh", ele ocupará 100% da altura da janela do navegador. */
+    /* height: 100vh; */
+    box-sizing: border-box;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+}
+
+.cabecalho{
+    padding: 2% 0 0 15%;
+}
+
+.cabecalho__menu{
+    /* O gap é uma propriedade CSS utilizada para definir o espaçamento entre os elementos de um contêiner flexível. No contexto do código fornecido, a propriedade gap está sendo usada para definir o espaçamento entre os itens do menu do cabeçalho. */
+    display: flex;
+    gap: 80px;
+}
+
+.cabecalho__menu__link{
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cor-terciaria);
+    /* A propriedade "text-decoration: none" é utilizada para remover a decoração de texto, como sublinhado, em um elemento HTML. Quando aplicada a um link, por exemplo, ela remove o sublinhado padrão que aparece quando o link é visitado ou passa o mouse sobre ele. */
+    text-decoration: none;
+}
+
+
+.apresentacao{
+    padding: 5% 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 82px;
+}
+
+.apresentacao__conteudo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* A unidade de medida "rem" é uma medida relativa em CSS que utiliza o root-element, ou seja, a página HTML, como referência. No exemplo apresentado na aula, o valor de 2.25rem foi utilizado para definir o tamanho da fonte do elemento H1. Essa medida é calculada com base em uma escala onde 16px equivale a 1rem. Dessa forma (36px / 16px = 2.25rem) é possível criar um projeto responsivo, onde o tamanho da fonte se ajusta de acordo com as configurações do navegador do usuário. */
+.apresentacao__conteudo__titulo{
+    font-size: 2.25rem;
+    font-family: var(--fonte-primaria);
+}
+
+.textAzul {
+    color: var(--cor-terciaria);
+}
+
+.apresentacao__conteudo__texto{
+    font-size: 1.5rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.apresentacao__links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+
+.apresentacao__links__navegacao{
+    /* essa parte sera para colocar o texto e o icone no centro do botão. */
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    /* o gap foi usado para fazer o espaçamento entre o icone e o texto. */
+    font-family: var(--fonte-secundaria);
+    width: 50%;
+    padding: 21.5px 0;
+    text-align: center;
+    border-radius: 8px;
+    border: 2px solid var(--cor-terciaria);
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--cor-secundaria);
+    font-weight: 600;
+}
+
+/* para trocar a cor do botão quando o mouse passa por cima vc tem que fzr a mesma classe que se usa do botão e logo em seguida colocar ":hover" , a partir disso tudo que vc fizer dentro dessa classe vai acontecer quando o mouse estiver no botão  */
+.apresentacao__links__link:hover{
+    background-color: var(--cor-hover);
+    padding: 3%;
+}
+
+.apresentacao__links__subtitulo{
+    font-family: var(--fonte-primaria);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.apresentacao__imagem{
+    width: 50%;
+}
+
+.rodape{
+    color: var(--cor-primaria);
+    background-color: var(--cor-terciaria);
+    padding: 24px;
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/* O @media é uma regra do CSS que permite aplicar estilos diferentes com base em condições de tamanho de tela. Ele é usado para criar media queries, que são usadas para adaptar o layout de um site ou aplicação web a diferentes dispositivos e tamanhos de tela.  */
+@media (max-width: 1200px){
+    .cabecalho{
+        padding: 10%;
+    }
+
+    .cabecalho__menu{
+        /* A propriedade "justify-content" é utilizada para alinhar os itens horizontalmente dentro de um container flexbox. */
+        justify-content: center;
+    }
+
+    .apresentacao{
+        /* Ao aplicar "flex-direction: column-reverse", os elementos serão dispostos em coluna, mas em ordem inversa, ou seja, o último elemento será posicionado no topo e o primeiro elemento no final da coluna. */
+        flex-direction: column-reverse;
+        padding: 5%;
+    }
+
+    .apresentacao__conteudo{
+        /* O valor "auto" foi usado para definir a largura do elemento ".apresentacao__conteudo" de acordo com o comportamento do elemento-pai, delimitando a área a ser ocupada juntamente com o "padding". Isso permite que o conteúdo se ajuste corretamente à área da tela em dispositivos menores. */
+        width: auto;
+
+    }
+}
